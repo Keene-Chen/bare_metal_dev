@@ -9,6 +9,9 @@
 *.ko
 *.obj
 *.elf
+*.bin
+*.imx
+*.dis
 
 # Linker output
 *.ilk
