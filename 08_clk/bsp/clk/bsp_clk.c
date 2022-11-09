@@ -46,27 +46,27 @@ void clk_init(void)
      * 792 = 24 * div_select / 2.0
      * 得出: div_select = 66
      */
-    CCM_ANALOG->PLL_ARM = (1 << 13) | ((66 << 0) & 0X7F); // 配置pll1_main_clk=792MHz
+    CCM_ANALOG->PLL_ARM = (1 << 13) | ((66 << 0) & 0x7F); // 配置pll1_main_clk=792MHz
     CCM->CCSR &= ~(1 << 2);                               // 将pll_sw_clk时钟重新切换回pll1_main_clk
     CCM->CACRR = 0;                                       // ARM内核时钟为pll1_sw_clk/1=792/1=792Mhz
 
     /* 2.设置PLL2(SYS PLL)各个PFD */
     reg = CCM_ANALOG->PFD_528;
-    reg &= ~(0X3F3F3F3F);      // 清除原来的设置
-    reg |= 32 << 24;           // PLL2_PFD3=528*18/32=297Mhz
-    reg |= 24 << 16;           // PLL2_PFD2=528*18/24=396Mhz(DDR使用的时钟，最大400Mhz)
-    reg |= 16 << 8;            // PLL2_PFD1=528*18/16=594Mhz
-    reg |= 27 << 0;            // PLL2_PFD0=528*18/27=352Mhz
+    reg &= ~(0x3F3F3F3F);      // 清除原来的设置
+    reg |= (32 << 24);         // PLL2_PFD3=528*18/32=297Mhz
+    reg |= (24 << 16);         // PLL2_PFD2=528*18/24=396Mhz(DDR使用的时钟，最大400Mhz)
+    reg |= (16 << 8);          // PLL2_PFD1=528*18/16=594Mhz
+    reg |= (27 << 0);          // PLL2_PFD0=528*18/27=352Mhz
     CCM_ANALOG->PFD_528 = reg; // 设置PLL2_PFD0~3
 
     /* 3.设置PLL3(USB1)各个PFD */
-    reg = 0; /* 清零   */
+    reg = 0; // 清零
     reg = CCM_ANALOG->PFD_480;
     reg &= ~(0X3F3F3F3F);      // 清除原来的设置
-    reg |= 19 << 24;           // PLL3_PFD3=480*18/19=454.74Mhz
-    reg |= 17 << 16;           // PLL3_PFD2=480*18/17=508.24Mhz
-    reg |= 16 << 8;            // PLL3_PFD1=480*18/16=540Mhz
-    reg |= 12 << 0;            // PLL3_PFD0=480*18/12=720Mhz
+    reg |= (19 << 24);         // PLL3_PFD3=480*18/19=454.74Mhz
+    reg |= (17 << 16);         // PLL3_PFD2=480*18/17=508.24Mhz
+    reg |= (16 << 8);          // PLL3_PFD1=480*18/16=540Mhz
+    reg |= (12 << 0);          // PLL3_PFD0=480*18/12=720Mhz
     CCM_ANALOG->PFD_480 = reg; // 设置PLL3_PFD0~3
 
     /* 4.设置AHB时钟 最小6MHz,最大132Mhz (boot rom已自动设置无需重复设置)*/
@@ -90,7 +90,7 @@ void clk_init(void)
 
     /* 5.设置IPG_CLK_ROOT最小3Mhz，最大66Mhz (boot rom自动设置好了可以不用设置)*/
     CCM->CBCDR &= ~(3 << 8); // CBCDR的IPG_PODF清零
-    CCM->CBCDR |= 1 << 8;    // IPG_PODF 2分频，IPG_CLK_ROOT=66MHz
+    CCM->CBCDR |= (1 << 8);  // IPG_PODF 2分频，IPG_CLK_ROOT=66MHz
 
     /* 6.设置PERCLK_CLK_ROOT时钟 */
     CCM->CSCMR1 &= ~(1 << 6); // PERCLK_CLK_ROOT时钟源为IPG

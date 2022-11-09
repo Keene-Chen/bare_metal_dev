@@ -19,6 +19,6 @@ void clk_enable(void);
  *         所有时钟频率均按照I.MX6ULL官方手册推荐的值.
  * @return void
  */
-void clk_clk(void);
+void clk_init(void);
 
 #endif // __BSP_CLK_H__

@@ -10,22 +10,24 @@
 #include "bsp_delay.h"
 #include "bsp_key.h"
 #include "bsp_led.h"
+#include "cc.h"
 #include "fsl_iomuxc.h"
 
 int main(void)
 {
+    clk_init();   // 初始化时钟
     clk_enable(); // 使能所有的时钟
     led_init();   // 初始化led
     beep_init();  // 初始化蜂鸣器
     key_init();   // 初始化按键输入
 
-    int i = 0, key_val = 0, led_state = 0, beep_state = 0;
+    int i = 0, key_val = 0, led_state = OFF, beep_state = OFF;
 
     while (1) {
         // 按键控制蜂鸣器
         key_val = key_getvalue();
         if (key_val) {
-            switch ((key_val)) {
+            switch (key_val) {
             case KEY0_VALUE:
                 beep_state = !beep_state;
                 beep_switch(beep_state);
