@@ -10,7 +10,6 @@
 #include "bsp_delay.h"
 #include "bsp_gpio.h"
 #include "bsp_int.h"
-#include <stdlib.h>
 
 void exit_init(void)
 {

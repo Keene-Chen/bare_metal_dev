@@ -6,7 +6,6 @@
  */
 
 #include "bsp_int.h"
-#include "stdlib.h"
 
 /* 中断嵌套计数器 */
 static unsigned int irq_nesting;

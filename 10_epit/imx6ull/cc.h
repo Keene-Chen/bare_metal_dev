@@ -8,8 +8,9 @@
 #ifndef __CC_H__
 #define __CC_H__
 
-#define ON  1 
-#define OFF 0 
+#define ON  1
+#define OFF 0
+#define NULL ((void*)0)
 
 // 自定义一些数据类型供库文件使用
 #define __I  volatile

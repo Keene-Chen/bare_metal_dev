@@ -9,7 +9,6 @@
 #include "MCIMX6Y2.h"
 #include "bsp_int.h"
 #include "bsp_led.h"
-#include <stdlib.h>
 
 void epit1_init(int frac, int value)
 {

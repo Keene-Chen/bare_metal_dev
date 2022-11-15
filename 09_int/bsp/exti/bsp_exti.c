@@ -11,7 +11,6 @@
 #include "bsp_gpio.h"
 #include "bsp_int.h"
 #include "imx6ull.h"
-#include <stdlib.h>
 
 void exit_init(void)
 {
