@@ -57,7 +57,7 @@ VPATH     := $(SRCDIRS)
 
 # >>> 静态编译 >>>
 $(TARGET).bin : $(OBJS)
-	$(LD) -Timx6ull.lds -o $(TARGET).elf $^
+	$(LD) -Tsrc/imx6ull.lds -o $(TARGET).elf $^
 	$(OBJCOPY) -O binary -S $(TARGET).elf $@
 	$(OBJDUMP) -D -m arm $(TARGET).elf > $(TARGET).dis
 

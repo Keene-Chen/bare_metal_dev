@@ -1,5 +1,12 @@
+/**
+ * @file    : imx6ull.lds
+ * @author  : KeeneChen
+ * @date    : 2022.11.03-11:05:42
+ * @details : 汇编链接脚本
+ */
+
 SECTIONS{
-	. = 0X87800000;
+	. = 0x87800000;
 	.text :
 	{
 		obj/start.o
