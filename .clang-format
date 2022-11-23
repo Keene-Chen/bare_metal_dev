@@ -10,20 +10,19 @@ AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 
 # 对齐连续宏
-AlignConsecutiveMacros:
-  Enabled: true
+AlignConsecutiveMacros: Consecutive
 
 # 连续赋值时,对齐所有等号
-AlignConsecutiveAssignments: true
+AlignConsecutiveAssignments: Consecutive
 
 # 连续声明时,对齐所有声明的变量名
-AlignConsecutiveDeclarations: false
+AlignConsecutiveDeclarations: None
 
 # 左对齐逃脱换行(使用反斜杠换行)的反斜杠
 AlignEscapedNewlinesLeft: true
 
 # 水平对齐二元和三元表达式的操作数
-AlignOperands: true
+AlignOperands: Align
 
 # 对齐连续的尾随的注释
 AlignTrailingComments: true
@@ -32,7 +31,7 @@ AlignTrailingComments: true
 AllowAllParametersOfDeclarationOnNextLine: true
 
 # 允许短的块放在同一行
-AllowShortBlocksOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
 
 # 允许短的case标签放在同一行
 AllowShortCaseLabelsOnASingleLine: false
@@ -41,7 +40,7 @@ AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Empty
 
 # 允许短的if语句保持在同一行
-AllowShortIfStatementsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: Never
 
 # 允许短的循环保持在同一行
 AllowShortLoopsOnASingleLine: false
@@ -57,7 +56,7 @@ AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 
 # 总是在template声明后换行
-AlwaysBreakTemplateDeclarations: false
+AlwaysBreakTemplateDeclarations: No
 
 # false表示函数实参要么都在同一行,要么都各自一行
 BinPackArguments: true
@@ -70,7 +69,7 @@ BraceWrapping:
   # class定义后面
   AfterClass: false
   # 控制语句后面
-  AfterControlStatement: false
+  AfterControlStatement: Never
   # enum定义后面
   AfterEnum: false
   # 函数定义后面
@@ -108,7 +107,7 @@ BreakConstructorInitializersBeforeComma: false
 ColumnLimit: 200
 
 # 描述具有特殊意义的注释的正则表达式,它不应该被分割为多行或以其它方式改变
-CommentPragmas: '^ IWYU pragma:'
+CommentPragmas: "^ IWYU pragma:"
 
 # 构造函数的初始化列表要么都在同一行,要么都各自一行
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
@@ -132,17 +131,17 @@ DisableFormat: false
 ExperimentalAutoDetectBinPacking: false
 
 # 需要被解读为foreach循环而不是函数调用的宏
-ForEachMacros: [ foreach, Q_FOREACH, BOOST_FOREACH ]
+ForEachMacros: [foreach, Q_FOREACH, BOOST_FOREACH]
 
 # 对#include进行排序,匹配了某正则表达式的#include拥有对应的优先级,匹配不到的则默认优先级为INT_MAX(优先级越小排序越靠前),
 # 可以定义负数优先级从而保证某些#include永远在最前面
 IncludeCategories:
-  - Regex:      '^"(llvm|llvm-c|clang|clang-c)/'
-    Priority:   2
-  - Regex:      '^(<|"(gtest|isl|json)/)'
-    Priority:   3
-  - Regex:      '.*'
-    Priority:   1
+  - Regex: '^"(llvm|llvm-c|clang|clang-c)/'
+    Priority: 2
+  - Regex: '^(<|"(gtest|isl|json)/)'
+    Priority: 3
+  - Regex: ".*"
+    Priority: 1
 
 # 缩进case标签
 IndentCaseLabels: false
@@ -157,10 +156,10 @@ IndentWrappedFunctionNames: false
 KeepEmptyLinesAtTheStartOfBlocks: true
 
 # 开始一个块的宏的正则表达式
-MacroBlockBegin: ''
+MacroBlockBegin: ""
 
 # 结束一个块的宏的正则表达式
-MacroBlockEnd: ''
+MacroBlockEnd: ""
 
 # 连续空行的最大数量
 MaxEmptyLinesToKeep: 1
@@ -202,7 +201,7 @@ PointerAlignment: Left
 ReflowComments: true
 
 # 允许排序#include
-SortIncludes: true
+SortIncludes: CaseSensitive
 
 # 在C风格类型转换后添加空格
 SpaceAfterCStyleCast: false
@@ -220,7 +219,7 @@ SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
 
 # 在尖括号的<后和>前添加空格
-SpacesInAngles: false
+SpacesInAngles: Never
 
 # 在容器(ObjC和JavaScript的数组和字典等)字面量中添加空格
 SpacesInContainerLiterals: false
@@ -235,7 +234,7 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 
 # 标准: Cpp03, Cpp11, Auto
-Standard: Cpp11
+Standard: c++11
 
 # tab宽度
 TabWidth: 4
