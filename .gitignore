@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+# clangd
+**.cache
+
 # Object files
 **build/
 **obj/
