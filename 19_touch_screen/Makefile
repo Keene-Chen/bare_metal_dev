@@ -1,9 +1,9 @@
 # author  : KeeneChen
-# date    : 2022.11.27-12:05:20
-# details : SPI驱动
+# date    : 2022.11.28-15:50:35
+# details : ft5426触摸屏驱动
 
 # >>> 配置编译器选项 >>>
-TARGET  ?= spi
+TARGET  ?= touch_screen
 CROSS_COMPILE_PREFIX ?= arm-linux-gnueabihf-
 CC      := $(CROSS_COMPILE_PREFIX)gcc
 LD      := $(CROSS_COMPILE_PREFIX)ld
@@ -35,7 +35,8 @@ INCDIRS   := imx6ull        \
              bsp/i2c        \
              bsp/ap3216c    \
              bsp/spi        \
-             bsp/icm20608
+             bsp/icm20608   \
+             bsp/ft5426
 SRCDIRS   := src            \
              stdio/lib      \
              bsp/clk        \
@@ -54,7 +55,8 @@ SRCDIRS   := src            \
              bsp/i2c        \
              bsp/ap3216c    \
              bsp/spi        \
-             bsp/icm20608
+             bsp/icm20608   \
+             bsp/ft5426
 
 # 在编译中加入 -I参数用于搜索头文件
 INCLUDE   := $(patsubst %,-I %, $(INCDIRS))
