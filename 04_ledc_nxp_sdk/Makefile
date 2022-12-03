@@ -5,11 +5,11 @@
 CROSS_COMPILE_PREFIX ?= arm-linux-gnueabihf-
 TARGET ?= ledc
 
-CC := $(CROSS_COMPILE_PREFIX)gcc
-LD := $(CROSS_COMPILE_PREFIX)ld
+CC      := $(CROSS_COMPILE_PREFIX)gcc
+LD      := $(CROSS_COMPILE_PREFIX)ld
 OBJCOPY := $(CROSS_COMPILE_PREFIX)objcopy
 OBJDUMP := $(CROSS_COMPILE_PREFIX)objdump
-OBJS := start.o led.o
+OBJS    := start.o led.o
 INCLUDE := include
 
 $(TARGET).bin : $(OBJS)

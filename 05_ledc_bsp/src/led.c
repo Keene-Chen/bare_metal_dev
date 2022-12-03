@@ -13,13 +13,13 @@
 int main(void)
 {
     clk_enable(); // 使能所有的时钟
-    led_init(); // 初始化led
+    led_init();   // 初始化led
 
     while (1) {
-        led_switch(LED0,ON);
+        led_switch(LED0, ON);
         delay(200); // 延时大约500ms
 
-        led_switch(LED0,OFF);
+        led_switch(LED0, OFF);
         delay(200); // 延时大约500ms
     }
 

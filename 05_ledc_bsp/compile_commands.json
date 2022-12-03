@@ -1,0 +1,112 @@
+[
+  {
+    "arguments": [
+      "/home/keenechen/IMX6ULL/toolchain/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc",
+      "-Wall",
+      "-c",
+      "-O2",
+      "-I",
+      "imx6ull",
+      "-I",
+      "bsp/clk",
+      "-I",
+      "bsp/delay",
+      "-I",
+      "bsp/led",
+      "-o",
+      "obj/start.o",
+      "src/start.s"
+    ],
+    "directory": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp",
+    "file": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/src/start.s",
+    "output": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/obj/start.o"
+  },
+  {
+    "arguments": [
+      "/home/keenechen/IMX6ULL/toolchain/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc",
+      "-Wall",
+      "-c",
+      "-O2",
+      "-I",
+      "imx6ull",
+      "-I",
+      "bsp/clk",
+      "-I",
+      "bsp/delay",
+      "-I",
+      "bsp/led",
+      "-o",
+      "obj/led.o",
+      "src/led.c"
+    ],
+    "directory": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp",
+    "file": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/src/led.c",
+    "output": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/obj/led.o"
+  },
+  {
+    "arguments": [
+      "/home/keenechen/IMX6ULL/toolchain/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc",
+      "-Wall",
+      "-c",
+      "-O2",
+      "-I",
+      "imx6ull",
+      "-I",
+      "bsp/clk",
+      "-I",
+      "bsp/delay",
+      "-I",
+      "bsp/led",
+      "-o",
+      "obj/bsp_clk.o",
+      "bsp/clk/bsp_clk.c"
+    ],
+    "directory": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp",
+    "file": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/bsp/clk/bsp_clk.c",
+    "output": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/obj/bsp_clk.o"
+  },
+  {
+    "arguments": [
+      "/home/keenechen/IMX6ULL/toolchain/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc",
+      "-Wall",
+      "-c",
+      "-O2",
+      "-I",
+      "imx6ull",
+      "-I",
+      "bsp/clk",
+      "-I",
+      "bsp/delay",
+      "-I",
+      "bsp/led",
+      "-o",
+      "obj/bsp_delay.o",
+      "bsp/delay/bsp_delay.c"
+    ],
+    "directory": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp",
+    "file": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/bsp/delay/bsp_delay.c",
+    "output": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/obj/bsp_delay.o"
+  },
+  {
+    "arguments": [
+      "/home/keenechen/IMX6ULL/toolchain/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc",
+      "-Wall",
+      "-c",
+      "-O2",
+      "-I",
+      "imx6ull",
+      "-I",
+      "bsp/clk",
+      "-I",
+      "bsp/delay",
+      "-I",
+      "bsp/led",
+      "-o",
+      "obj/bsp_led.o",
+      "bsp/led/bsp_led.c"
+    ],
+    "directory": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp",
+    "file": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/bsp/led/bsp_led.c",
+    "output": "/home/keenechen/IMX6ULL/bare_metal_dev/05_ledc_bsp/obj/bsp_led.o"
+  }
+]

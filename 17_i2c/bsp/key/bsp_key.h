@@ -15,9 +15,9 @@ void key_init(void);
 
 /**
  * @brief  获取按键值
- * @return int
- * @retval int
- * @retval int
+ * @return int   按键电平信号
+ * @retval other 对应的按键值
+ * @retval 0     没有按键按下
  */
 int key_getvalue(void);
 

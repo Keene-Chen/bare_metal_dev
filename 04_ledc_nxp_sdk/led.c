@@ -33,21 +33,21 @@ void led_init(void)
 
     /**
      * 2.配置GPIO1_IO03的IO属性
-     * [16]:0 HYS关闭
-     * [15:14]: 00 默认下拉
-     * [13]: 0 kepper功能
-     * [12]: 1 pull/keeper使能
-     * [11]: 0 关闭开路输出
-     * [7:6]: 10 速度100Mhz
-     * [5:3]: 110 R0/6驱动能力
-     * [0]: 0 低转换率
+     * [16]   : 0   HYS关闭
+     * [15:14]: 00  默认下拉
+     * [13]   : 0   kepper功能
+     * [12]   : 1   pull/keeper使能
+     * [11]   : 0   关闭开路输出
+     * [7:6]  : 10  速度100Mhz
+     * [5:3]  : 110 R0/6驱动能力
+     * [0]    : 0   低转换率
      */
     IOMUXC_SetPinConfig(IOMUXC_GPIO1_IO03_GPIO1_IO03, 0x10B0);
 
-    // 3.初始化GPIO
-    GPIO1->GDIR = 0x0000008; // GPIO1_IO03设置为输出
+    // 3.初始化GPIO,GPIO1_IO03设置为输出
+    GPIO1->GDIR = 0x0000008;
 
-    // 4.设置GPIO1_IO03输出低电平，打开LED0
+    // 4.设置GPIO1_IO03输出低电平,打开LED0
     GPIO1->DR &= ~(1 << 3);
 }
 
@@ -73,7 +73,7 @@ void led_off(void)
 
 /**
  * @brief  短时间延时函数
- * @param  n 要延时循环次数(空操作循环次数，模式延时)
+ * @param  n 要延时循环次数(空操作循环次数,模式延时)
  * @return void
  */
 static void delay_short(volatile unsigned int n)
@@ -100,10 +100,10 @@ int main(void)
     led_init();   // 初始化led
 
     while (1) {
-        led_off();   // 关闭LED
+        led_off();  // 关闭LED
         delay(300); // 延时大约500ms
 
-        led_on();    // 打开LED
+        led_on();   // 打开LED
         delay(300); // 延时大约500ms
     }
 

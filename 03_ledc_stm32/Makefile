@@ -9,7 +9,7 @@ ledc.bin:$(objs)
     # -Ttext 使用指定的地址作为代码段的起点
     # -Tdata 使用指定的地址作为数据段的起点
     # -Tbss  使用指定的地址作为未初始化的数据段的起点
-	arm-linux-gnueabihf-ld -Timx6ull.lds -o ledc.elf $^
+	arm-linux-gnueabihf-ld -T imx6ull.lds -o ledc.elf $^
 	arm-linux-gnueabihf-objcopy -O binary -S ledc.elf $@
 	arm-linux-gnueabihf-objdump -D -m arm ledc.elf > ledc.dis
 	

@@ -3,7 +3,7 @@
 # details : 按键输入
 
 # >>> 配置编译器选项 >>>
-TARGET ?= key
+TARGET  ?= key
 CROSS_COMPILE_PREFIX ?= arm-linux-gnueabihf-
 CC      := $(CROSS_COMPILE_PREFIX)gcc
 LD      := $(CROSS_COMPILE_PREFIX)ld
@@ -12,20 +12,23 @@ OBJDUMP := $(CROSS_COMPILE_PREFIX)objdump
 # <<< 配置编译器选项 <<<
 
 # >>> 搜索替换头文件和源文件 >>>
+# 二进制文件生成目录
+BINDIR    := bin
+
 # 指定头文件和源文件路径
 INCDIRS   := imx6ull   \
              bsp/clk   \
              bsp/delay \
              bsp/beep  \
              bsp/led   \
-             bsp/gpio   \
+             bsp/gpio  \
              bsp/key   
 SRCDIRS   := src       \
              bsp/clk   \
              bsp/beep  \
              bsp/delay \
              bsp/led   \
-             bsp/gpio   \
+             bsp/gpio  \
              bsp/key   
 
 # 在编译中加入 -I参数用于搜索头文件
@@ -53,6 +56,7 @@ $(TARGET).bin : $(OBJS)
 	$(LD) -Tsrc/imx6ull.lds -o $(TARGET).elf $^
 	$(OBJCOPY) -O binary -S $(TARGET).elf $@
 	$(OBJDUMP) -D -m arm $(TARGET).elf > $(TARGET).dis
+	mv $(TARGET).elf $(TARGET).dis $(TARGET).bin bin
 
 $(SOBJS) : obj/%.o : %.s
 	$(CC) -Wall -nostdlib -c -O2 $(INCLUDE) -o $@ $<
@@ -66,10 +70,11 @@ $(COBJS) : obj/%.o : %.c
 
 # flash 烧写bin文件到tf卡
 flash:
-	./bin/imxdownload $(TARGET).bin /dev/sdb
+	$(BINDIR)/imxdownload $(BINDIR)/$(TARGET).bin /dev/sdb
 
 # show 伪目标用于查看变量
 show:
+	@echo BINDIR     = $(BINDIR)
 	@echo INCLUDE    = $(INCLUDE)
 	@echo SFILES     = $(SFILES)
 	@echo CFILES     = $(CFILES)
@@ -81,5 +86,5 @@ show:
 
 # clean 伪目标用于清除生成的目标文件
 clean:
-	rm -rf $(TARGET).elf $(TARGET).dis $(TARGET).bin $(OBJS)
+	rm -rf $(BINDIR)/$(TARGET).elf $(BINDIR)/$(TARGET).dis $(BINDIR)/$(TARGET).bin $(OBJS)
 # <<< 伪目标配置 <<<
