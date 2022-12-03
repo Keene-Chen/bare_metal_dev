@@ -10,8 +10,6 @@
 #include "bsp_delay.h"
 #include "bsp_key.h"
 #include "bsp_led.h"
-#include "cc.h"
-#include "fsl_iomuxc.h"
 
 int main(void)
 {
@@ -31,8 +29,6 @@ int main(void)
             case KEY0_VALUE:
                 beep_state = !beep_state;
                 beep_switch(beep_state);
-                break;
-            default:
                 break;
             }
         }
